@@ -3,7 +3,6 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
-    @first_user = User.find(1)
 
     respond_to do |format|
       format.html # index.html.erb
