@@ -1,0 +1,29 @@
+<h1>Listing users</h1>
+<p>Current user:<br><%= @first_user.name%><br>E-mail:<br> <%= @first_user.email %></p>
+<table>
+  <tr>
+	<th>Íd</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Created at</th>
+    <th>Updated at</th>
+    <th>Action</th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+	<td><%= user.id %></td>
+    <td><%= user.name %></td>
+    <td><%= user.email %></td>
+	<td><%= user.created_at %></td>
+	<td><%= user.updated_at %></td>
+    <td><%= link_to 'Show', user %></td>
+    <td><%= link_to 'Edit', edit_user_path(user) %></td>
+    <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New User', new_user_path %>
